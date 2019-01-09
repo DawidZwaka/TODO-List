@@ -11,7 +11,7 @@ var runSequence = require('run-sequence');
 var gutil = require('gulp-util');
 var concat = require('gulp-concat');
 var babili = require('gulp-babili');
-
+const babel = require('gulp-babel');
 
 gulp.task('hello', () => {
   console.log('Hello Bartek');
@@ -26,13 +26,25 @@ gulp.task('browserSync', () => {
 })
 
 gulp.task('sass', () => {
-  return gulp.src('app/sass/**/*.sass')
+  return gulp.src('app/sass/*.sass')
     .pipe(sass()) // Converts Sass to CSS with gulp-sass
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
       stream: true
     }))
 });
+
+gulp.task('babell', () => {
+    return gulp.src('app/js/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(gulp.dest('app/jsEnd'))
+        .pipe(browserSync.reload({
+          stream: true
+        }))
+      });
+
 
 gulp.task('images', () => {
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
@@ -47,10 +59,10 @@ gulp.task('fonts', () => {
     .pipe(gulp.dest('dist/fonts'))
 })
 
-gulp.task('watch', ['browserSync', 'sass'], () => {
+gulp.task('watch', ['browserSync', 'sass', 'babell'], () => {
   gulp.watch('app/sass/**/*.sass', ['sass']);
+  gulp.watch('app/js/**/*.js', ['babell']);
   gulp.watch('app/*.html', browserSync.reload);
-  gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
 gulp.task('useref', () => {
@@ -79,7 +91,7 @@ gulp.task('clean:dist', () => {
 })
 
 gulp.task('default', function (callback) {
-  runSequence(['watch', 'sass', 'browserSync'],
+  runSequence(['watch', 'sass', 'babell', 'browserSync'],
     callback
   )
 })

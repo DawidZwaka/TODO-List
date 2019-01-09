@@ -9,10 +9,13 @@
   "license": "ISC",
   "description": "Simple JavaScript TODO list",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
     "apache-server-configs": "^3.0.0",
     "browser-sync": "^2.24.6",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
     "gulp-babili": "^0.1.4",
     "gulp-cache": "^1.0.2",
     "gulp-concat": "^2.6.1",
