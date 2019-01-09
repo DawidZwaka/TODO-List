@@ -5,9 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/todo.css">
 </head>
 <body>
-    TODO-List
-    <script src="./javascript/main.js"></script>
+    <main class="mainCnt">
+        <section class="todo">
+            <h1 class="todo__header">TO_DO LIST</h1>
+           <form class="todo__crtEl">
+                <textarea class="inputTextItem" name="" id="" cols="30" rows="10" placeholder="type some text..."></textarea>
+                <input class="todo__btn" type="submit" value="CREATE">
+           </form>
+           <div class="todo__list">
+               <nav class="todoNav">
+                    <h2 class="todoNav__taskAmount">Tasks: 0</h2>
+                    <input type="text" name="search" class="todoNav__searchInp" >
+                    <img src="./img/loupe.svg" alt="loupe image" class="todoNav__loupe">
+                </nav>
+               <ul class="todo__items">
+               </ul>
+           </div>
+        </section>
+        <img src="./img/paintShape.svg" alt="paint shape" class="paintShape paintShape--bottomLeft">
+        <img src="./img/paintShape.svg" alt="paint shape" class="paintShape paintShape--topRight">
+    </main>
+    <noscript>You must enable Javascript</noscript>
+    <script src="./jsEnd/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+@import './config.sass'
+
+/* width */
+::-webkit-scrollbar 
+  width: 10px
+
+/* Track */
+::-webkit-scrollbar-track 
+  background: #f1f1f1
+
+
+/* Handle */
+::-webkit-scrollbar-thumb 
+  background: #2c3e50
+
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover 
+  background: #141e28
+
+textarea, input, button
+    outline: none
+
+html
+    font-size: 10px
+    font-family: $main-font
+    overflow-y: overlay
+body 
+    margin: 0
+    padding: 0
+    font-size: 2em
+.mainCnt
+    background: linear-gradient(to right bottom, #333263, #1A1A3A)
+    //background-attachment: fixed
+    overflow: hidden
+    min-height: 100vh
+    position: relative
+    display: flex
+    justify-content: center
+.paintShape
+  position: fixed
+  z-index: 1
+  &--topRight
+    top: -200px
+    right: -300px
+  &--bottomLeft
+    left: -200px
+    bottom: 400px
+    transform-origin: bottom center
+    transform: rotate(180deg)
